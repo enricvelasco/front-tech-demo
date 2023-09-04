@@ -1,25 +1,27 @@
 import { useParams } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
+import { useDetail } from './resources/useDetail';
 
 export const BeerDetail = () => {
-  const params = useParams();
-  const { beerId } = params;
+  const {
+    beer
+  } = useDetail();
 
   return (
     <Container maxWidth="sm">
       <Grid container spacing={2}>
         <Grid item xs={6} md={6}>
-          <div>IMAGE</div>
+          <div>{beer?.imageUrl}</div>
         </Grid>
         <Grid item xs={6} md={6}>
-          <div>NAME</div>
+          <div>{beer?.name}</div>
         </Grid>
         <Grid item xs={6} md={6}>
-          <div>TAGLINE</div>
+          <div>{beer?.tagline}</div>
         </Grid>
         <Grid item xs={6} md={6}>
-          <div>DESCRIPTION</div>
+          <div>{beer?.description}</div>
         </Grid>
         <Grid item xs={6} md={6}>
           <div>INGREDIENTS</div>
