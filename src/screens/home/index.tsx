@@ -15,7 +15,6 @@ import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import { useHome } from './resources/useHome';
 
-
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -84,6 +83,7 @@ export const HomeScreen = () => {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                onChange={(e) => console.log('onChange', e.target.value)}
               />
             </Search>
           </Toolbar>
