@@ -14,7 +14,6 @@ import InputBase from '@mui/material/InputBase';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
-
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -181,6 +180,7 @@ export const HomeScreen = () => {
                 srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
+                style={{ maxHeight: 250, objectFit: 'cover' }}
               />
               <ImageListItemBar
                 title={item.title}
@@ -201,5 +201,5 @@ export const HomeScreen = () => {
         </ImageList>
       </Container>
     </>
-  )
-}
+  );
+};
