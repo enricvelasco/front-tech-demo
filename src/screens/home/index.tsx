@@ -14,7 +14,7 @@ import InputBase from '@mui/material/InputBase';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
-const Search = styled('div')(({ theme }) => ({
+const Search = styled('form')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -143,6 +143,11 @@ export const HomeScreen = () => {
     },
   ];
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log('ON_SUBMIT_SEARCH');
+  };
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -156,13 +161,14 @@ export const HomeScreen = () => {
             >
               FRONT BEER DEMO
             </Typography>
-            <Search>
+            <Search onSubmit={onSubmit}>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                onChange={({ target: { value } }) => console.log('ON_CHANGE', value)}
               />
             </Search>
           </Toolbar>
@@ -171,7 +177,7 @@ export const HomeScreen = () => {
       <Container maxWidth="sm">
         <ImageList sx={{ width: 500, height: '100%', marginTop: '80px' }}>
           <ImageListItem key="Subheader" cols={2}>
-            <ListSubheader component="div">December</ListSubheader>
+            <ListSubheader component="div">Beer List</ListSubheader>
           </ImageListItem>
           {itemData.map((item) => (
             <ImageListItem key={item.img}>

@@ -7,6 +7,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { HomeScreen } from './screens/home/index';
 import { BeerDetail } from './screens/detail/index';
+import './index.css';
 
 const router = createBrowserRouter([
   {
